@@ -1,0 +1,29 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {% include head.html %}
+
+  <body>
+
+    <div id="app">
+    
+    {% include header.html %}
+<b-container>
+    
+        {{ content }}
+
+
+</b-container>
+    {% include mainjs.html %}
+
+    {% include footer.html %}
+	
+    </div>    
+
+  </body>
+
+</html>

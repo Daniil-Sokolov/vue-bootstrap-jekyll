@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+
+        <b-jumbotron header="Bootstrap Vue"
+                     lead="Bootstrap 4 Components for Vue.js 2"
+        >
+          <p>For more information visit our website</p>
+          <b-btn variant="primary" href="https://bootstrap-vue.js.org/">More Info</b-btn>
+        </b-jumbotron>
+
+        <b-form-group horizontal
+                      :label-cols="4"
+                      description="Let us know your name."
+                      label="Enter your name"
+        >
+           <b-form-input v-model.trim="name"></b-form-input>
+        </b-form-group>
+
+        <b-alert variant="success" :show="showAlert">
+          Hello {{ name }}
+        </b-alert>
+
+
+
+<div>
+  <b-card-group deck class="mb-3">
+    {% for post in site.posts %}
+    <b-link to="{{ post.url | relative_url }}">
+  <b-card title="{{ post.title | escape }}"
+          img-src="https://lorempixel.com/600/300/food/5/"
+          img-alt="Image"
+          img-top
+          tag="article"
+          style="max-width: 20rem;"
+          class="mb-2">
+          
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of the card's content.
+    </p>
+    <b-button href="#" variant="primary">Go somewhere</b-button>
+  </b-card>
+</b-link>
+  {% endfor %}
+</b-card-group>
+</div>
+
+<!-- card-1.vue -->

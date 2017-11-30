@@ -1,0 +1,34 @@
+<div class="header">
+
+
+
+<b-navbar toggleable="md" type="dark" variant="info">
+
+  <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+
+      {% assign default_paths = site.pages | map: "path" %}
+    {% assign page_paths = site.header_pages | default: default_paths %}
+{% if page_paths %}
+  <b-navbar-brand to="{{ "/" | relative_url }}"  router-tag="a">{{ site.title | escape }}</b-navbar-brand>
+
+
+
+  <b-collapse is-nav id="nav_collapse">
+
+    <b-navbar-nav>
+      
+      {% for path in page_paths %}
+        {% assign my_page = site.pages | where: "path", path | first %}
+        {% if my_page.title %}
+          <b-nav-item to="{{ my_page.url | relative_url }}" router-tag="a">{{ my_page.title | escape }}</b-nav-item>
+        {% endif %}
+      {% endfor %}
+      
+    </b-navbar-nav>
+
+   </b-collapse>
+{% endif %}
+</b-navbar>
+
+
+</div>
